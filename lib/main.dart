@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+
+  var car = Car();
+  print("${car.wheels}");
+  car.wheelsNum();
+
+  //runApp(const MyApp());
 }
+
+class Vehicle{
+  int wheels = 10;
+  void wheelsNum(){
+    print("The vehicle's wheels number is $wheels");
+  }
+}
+
+class Car extends Vehicle{
+
+  @override
+  void wheelsNum(){
+    print("The car's wheels number is $wheels");
+  }
+}
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
