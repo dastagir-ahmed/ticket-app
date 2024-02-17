@@ -2,25 +2,43 @@ import 'package:flutter/material.dart';
 
 void main() {
 
-  var car = Car();
-  print("${car.wheels}");
+  var car = Car(4);
+  car.carType();
   car.wheelsNum();
-
+  var plane = Plane(3);
+  plane.wheelsNum();
   //runApp(const MyApp());
 }
 
-class Vehicle{
-  int wheels = 10;
-  void wheelsNum(){
-    print("The vehicle's wheels number is $wheels");
-  }
+abstract class Vehicle{
+  Vehicle(this.wheels);
+  int wheels;
+  void wheelsNum();
 }
 
 class Car extends Vehicle{
+  Car(super.wheels);
+
+  void carType(){
+    print("land runner");
+  }
 
   @override
   void wheelsNum(){
     print("The car's wheels number is $wheels");
+  }
+}
+
+class Plane extends Vehicle{
+  Plane(super.wheels);
+
+  void planeType(){
+    print("land runner");
+  }
+
+  @override
+  void wheelsNum(){
+    print("The plane's wheels number is $wheels");
   }
 }
 
