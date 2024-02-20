@@ -8,9 +8,34 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body:ListView(
-        children: [
-          Container(child: Text("Hello flutter"),),
-          Container(child:Text("Hello how are you"))
+        children:  [
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Column(
+                    children: [
+                      Text("Good morning"),
+                      Text("Book Tickets")
+                    ],
+                  ),
+                  Container(
+                    color: Colors.red,
+                    width: 100,
+                    height: 70,
+                  )
+                ],
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                    Text("Search icon"),
+                    Text("Empty space")
+                ],
+              )
+            ],
+          )
         ],
       )
     );
