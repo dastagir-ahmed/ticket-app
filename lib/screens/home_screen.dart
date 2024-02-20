@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket_app/base/res/styles/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -7,17 +8,25 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:ListView(
-        children:  [
-          Column(
+        body: ListView(
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Column(
+                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Good morning"),
-                      Text("Book Tickets")
+                      Text("Good morning",
+                          style: AppStyles.headLineStyle3),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text("Book Tickets",
+                          style: AppStyles.headLineStyle1)
                     ],
                   ),
                   Container(
@@ -29,15 +38,12 @@ class HomeScreen extends StatelessWidget {
               ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                    Text("Search icon"),
-                    Text("Empty space")
-                ],
+                children: [Text("Search icon"), Text("Empty space")],
               )
             ],
-          )
-        ],
-      )
-    );
+          ),
+        )
+      ],
+    ));
   }
 }
