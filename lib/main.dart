@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/bottom_nav_bar.dart';
+import 'package:ticket_app/base/res/styles/app_styles.dart';
 
 void main() {
   var myList = [
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return const MaterialApp(
+    return  const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: BottomNavBar(),
     );
   }

@@ -10,8 +10,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppStyles.bgColor,
         body: ListView(
       children: [
+        const SizedBox(height:40),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -49,13 +51,13 @@ class HomeScreen extends StatelessWidget {
                 padding:const EdgeInsets.symmetric(horizontal:12, vertical:12),
                 decoration: BoxDecoration(
                     borderRadius:  BorderRadius.circular(10),
-                    color: const Color(0xFF4F6FD),
+                    color: const Color(0xFFF4F6FD),
                 ),
                 child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Icon(FluentSystemIcons.ic_fluent_search_regular, color:Color(0xFFBFC205)),
-                    Text("Search icon")
+                    Text("Search")
                   ],
                 ),
               )
