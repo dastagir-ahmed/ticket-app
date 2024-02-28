@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
+import 'package:ticket_app/base/widgets/app_layoutbuilder_widget.dart';
 import 'package:ticket_app/base/widgets/big_dot.dart';
 
 class TicketView extends StatelessWidget {
@@ -28,11 +29,12 @@ class TicketView extends StatelessWidget {
                 ),
                 Expanded(child: Container()),
                 const BigDot(),
-                Expanded(child: Stack(children: [
+                const Expanded(child: Stack(children: [
                   SizedBox(
-                    child: Text("--------"),
+                    height:24,
+                    child: AppLayoutBuilderWidget(randomDivider: 6,)
                   ),
-                  Center(child: Text("plane"),)
+                 // Center(child: Text("plane"),)
                 ],)),
                 const BigDot(),
                 Expanded(child: Container()),
