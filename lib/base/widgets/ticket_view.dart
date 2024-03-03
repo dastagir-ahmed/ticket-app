@@ -17,6 +17,7 @@ class TicketView extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(right: 16),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             //blue part of the ticket
             Container(
@@ -71,22 +72,29 @@ class TicketView extends StatelessWidget {
                   //show departure and destination names with time
                   Row(
                     children: [
-                      Text(
-                        "New-York",
-                        style: AppStyles.headLineStyle3
-                            .copyWith(color: Colors.white),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          "New-York",
+                          style: AppStyles.headLineStyle4
+                              .copyWith(color: Colors.white),
+                        ),
                       ),
                       Expanded(child: Container()),
                       Text(
                         "8H 30M",
-                        style: AppStyles.headLineStyle3
+                        style: AppStyles.headLineStyle4
                             .copyWith(color: Colors.white),
                       ),
                       Expanded(child: Container()),
-                      Text(
-                        "London",
-                        style: AppStyles.headLineStyle3
-                            .copyWith(color: Colors.white),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          "London",
+                          textAlign: TextAlign.end,
+                          style: AppStyles.headLineStyle4
+                              .copyWith(color: Colors.white),
+                        ),
                       )
                     ],
                   )
