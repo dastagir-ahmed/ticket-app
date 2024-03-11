@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/utils/all_json.dart';
+import 'package:ticket_app/base/utils/app_routes.dart';
 import 'package:ticket_app/base/widgets/app_double_text.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
 
@@ -62,9 +63,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  const AppDoubleText(
+                  AppDoubleText(
                     bigText: 'Upcoming Flights',
                     smallText: 'View all',
+                    func:  () => Navigator.pushNamed(context, AppRoutes.allTickets),
                   ),
                   const SizedBox(height: 20),
                   SingleChildScrollView(
@@ -76,6 +78,14 @@ class HomeScreen extends StatelessWidget {
                                 TicketView(ticket: singleTicket))
                             .toList(),
                       )),
+                  const SizedBox(height: 40),
+                  AppDoubleText(
+                    bigText: 'Hotels',
+                    smallText: 'View all',
+                    func:  (){
+                        print("Hello there");
+                    },
+                  ),
                 ],
               ),
             ),
