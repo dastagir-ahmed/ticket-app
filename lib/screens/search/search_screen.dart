@@ -37,6 +37,7 @@ class SearchScreen extends StatelessWidget {
             ),
             const SizedBox(height: 15,),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
@@ -75,6 +76,40 @@ class SearchScreen extends StatelessWidget {
                       )
                     ],
                   )
+                ),
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                      width: size.width*.44,
+                      height: 210,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF3AB8B8),
+                        borderRadius: BorderRadius.circular(18)
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Discount\nfor survey",
+                            style: AppStyles.headLineStyle2.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white
+                            ),
+                          ),
+                          const SizedBox(height: 10,),
+                          Text(
+                            "Take the survey about our services and get discount",
+                            style: AppStyles.headLineStyle2.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              fontSize: 18
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 )
               ],
             )
