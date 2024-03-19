@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/utils/app_routes.dart';
@@ -77,15 +78,15 @@ class SearchScreen extends StatelessWidget {
                     ],
                   )
                 ),
-                Column(
+                Stack(
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                       width: size.width*.44,
                       height: 210,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF3AB8B8),
-                        borderRadius: BorderRadius.circular(18)
+                          color: const Color(0xFF3AB8B8),
+                          borderRadius: BorderRadius.circular(18)
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,8 +94,8 @@ class SearchScreen extends StatelessWidget {
                           Text(
                             "Discount\nfor survey",
                             style: AppStyles.headLineStyle2.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white
                             ),
                           ),
                           const SizedBox(height: 10,),
@@ -103,10 +104,24 @@ class SearchScreen extends StatelessWidget {
                             style: AppStyles.headLineStyle2.copyWith(
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white,
-                              fontSize: 18
+                                fontSize: 18
                             ),
                           ),
                         ],
+                      ),
+                    ),
+                    Positioned(
+                      right: -45,
+                      top:-40,
+                      child: Container(
+                        padding: EdgeInsets.all(30),
+                        decoration: BoxDecoration(
+
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                                width: 18, color: AppStyles.circleColor
+                            )
+                        ),
                       ),
                     )
                   ],
