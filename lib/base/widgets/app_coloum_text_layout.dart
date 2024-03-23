@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:ticket_app/base/widgets/text_style_fourth.dart';
 import 'package:ticket_app/base/widgets/text_style_third.dart';
 
 class AppColumnTextLayout extends StatelessWidget {
@@ -23,7 +24,7 @@ class AppColumnTextLayout extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        TextStyleThird(text: bottomText, isColor:isColor),
+        TextStyleFourth(text: bottomText, isColor:isColor),
       ],
     );
   }
