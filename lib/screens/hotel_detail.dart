@@ -44,11 +44,40 @@ class _HotelDetailState extends State<HotelDetail> {
               ),
             ),
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(hotelList[index]["place"]),
-              background:
-                  Image.asset("assets/images/${hotelList[index]["image"]}",
+              // title: Text(hotelList[index]["place"]),
+              background: Stack(
+                children: [
+                  Positioned.fill(
+                      child: Image.asset(
+                    "assets/images/${hotelList[index]["image"]}",
                     fit: BoxFit.cover,
-                  ),
+                  )),
+                  Positioned(
+                    bottom: 20,
+                    right: 20,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8, vertical: 4
+                      ),
+                      color: Colors.black.withOpacity(0.5),
+                        child: Text(
+                            hotelList[index]["place"],
+                            style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                              shadows: [
+                                Shadow(
+                                  blurRadius: 10.0,
+                                  color: AppStyles.primaryColor,
+                                  offset: Offset(2.0, 2.0)
+                                )
+                              ]
+                          ),
+                        )
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           SliverList(
