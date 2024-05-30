@@ -11,7 +11,8 @@ class HotelDetail extends StatefulWidget {
 }
 
 class _HotelDetailState extends State<HotelDetail> {
-  late int index=0;
+  late int index = 0;
+
   @override
   void didChangeDependencies() {
     var args = ModalRoute.of(context)!.settings.arguments as Map;
@@ -23,7 +24,6 @@ class _HotelDetailState extends State<HotelDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -33,53 +33,51 @@ class _HotelDetailState extends State<HotelDetail> {
             leading: Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.pop(context);
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppStyles.primaryColor
-                  ),
-                  child: Icon(
-                      Icons.arrow_back,
-                      color:Colors.white
-                  ),
+                      shape: BoxShape.circle, color: AppStyles.primaryColor),
+                  child: const Icon(Icons.arrow_back, color: Colors.white),
                 ),
               ),
             ),
             flexibleSpace: FlexibleSpaceBar(
               title: Text(hotelList[index]["place"]),
-              background: Image.asset("assets/images/${hotelList[index]["image"]}"),
+              background:
+                  Image.asset("assets/images/${hotelList[index]["image"]}",
+                    fit: BoxFit.cover,
+                  ),
             ),
           ),
           SliverList(
               delegate: SliverChildListDelegate([
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                      "In this article, we will create a custom scrollable app bar with a background image in Flutter. The app bar will shrink as the user scrolls up, and it will include a back button. Below the image, we will display some descriptive text with a More or Less button to show or hide additional text. Finally, we will add a section to display recent images in a horizontal list."),
-                ),
-                const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Text(
-                      "More Images",
-                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                    )),
-                Container(
-                  height: 200.0,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return Container(
-                            margin: EdgeInsets.all(16),
-                            color: Colors.red,
-                            child: Image.network(
-                                "https://via.placeholder.com/200x200"));
-                      }),
-                )
-              ]))
+            const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                  "In this article, we will create a custom scrollable app bar with a background image in Flutter. The app bar will shrink as the user scrolls up, and it will include a back button. Below the image, we will display some descriptive text with a More or Less button to show or hide additional text. Finally, we will add a section to display recent images in a horizontal list."),
+            ),
+            const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  "More Images",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                )),
+            Container(
+              height: 200.0,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Container(
+                        margin: EdgeInsets.all(16),
+                        color: Colors.red,
+                        child: Image.network(
+                            "https://via.placeholder.com/200x200"));
+                  }),
+            )
+          ]))
         ],
       ),
     );
