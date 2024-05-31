@@ -68,8 +68,9 @@ class _HotelDetailState extends State<HotelDetail> {
                               shadows: [
                                 Shadow(
                                   blurRadius: 10.0,
-                                  color: AppStyles.primaryColor,
-                                  offset: Offset(2.0, 2.0)
+                                  //color: Colors.red,
+                                  color:AppStyles.primaryColor,
+                                  offset: const Offset(2.0, 2.0)
                                 )
                               ]
                           ),
@@ -82,10 +83,12 @@ class _HotelDetailState extends State<HotelDetail> {
           ),
           SliverList(
               delegate: SliverChildListDelegate([
-            const Padding(
+             Padding(
               padding: EdgeInsets.all(16.0),
-              child: Text(
-                  "In this article, we will create a custom scrollable app bar with a background image in Flutter. The app bar will shrink as the user scrolls up, and it will include a back button. Below the image, we will display some descriptive text with a More or Less button to show or hide additional text. Finally, we will add a section to display recent images in a horizontal list."),
+              child: ExpandedTextWidget(
+                text:hotelList[index]["detail"]
+              )
+
             ),
             const Padding(
                 padding: EdgeInsets.all(16.0),
@@ -109,6 +112,50 @@ class _HotelDetailState extends State<HotelDetail> {
           ]))
         ],
       ),
+    );
+  }
+}
+
+class ExpandedTextWidget extends StatefulWidget {
+  const ExpandedTextWidget({super.key, required this.text});
+  final String text;
+
+  @override
+  State<ExpandedTextWidget> createState() => _ExpandedTextWidgetState();
+}
+
+class _ExpandedTextWidgetState extends State<ExpandedTextWidget> {
+  bool isExpanded=false;
+  _toggleExpansion(){
+    setState(() {
+      isExpanded = !isExpanded;
+    });
+    print("The value is $isExpanded");
+  }
+  @override
+  Widget build(BuildContext context) {
+
+    var textWidget = Text(
+      widget.text,
+      maxLines: isExpanded?null:3,
+      overflow: isExpanded?TextOverflow.visible:TextOverflow.ellipsis,
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children:[
+        textWidget,
+        GestureDetector(
+          onTap: (){
+            _toggleExpansion();
+          },
+          child: Text(
+            isExpanded?'Less':'More',
+            style: AppStyles.textStyle.copyWith(
+              color: AppStyles.primaryColor
+            ),
+          ),
+        )
+      ]
     );
   }
 }
