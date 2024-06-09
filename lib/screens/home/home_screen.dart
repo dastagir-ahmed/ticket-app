@@ -68,7 +68,8 @@ class HomeScreen extends StatelessWidget {
                   AppDoubleText(
                     bigText: 'Upcoming Flights',
                     smallText: 'View all',
-                    func:  () => Navigator.pushNamed(context, AppRoutes.allTickets),
+                    func: () =>
+                        Navigator.pushNamed(context, AppRoutes.allTickets),
                   ),
                   const SizedBox(height: 20),
                   SingleChildScrollView(
@@ -76,29 +77,44 @@ class HomeScreen extends StatelessWidget {
                       child: Row(
                         children: ticketList
                             .take(2)
-                            .map((singleTicket) =>
-                                TicketView(ticket: singleTicket))
+                            .map((singleTicket) => GestureDetector(
+                                onTap: () {
+                                  var index = ticketList.indexOf(singleTicket);
+
+                                  print("I am tapped on the ticket $index");
+
+                                  Navigator.pushNamed(
+                                      context, AppRoutes.ticketScreen,
+                                      arguments: {"index": index});
+                                },
+                                child: TicketView(ticket: singleTicket)))
                             .toList(),
                       )),
                   const SizedBox(height: 40),
                   AppDoubleText(
                     bigText: 'Hotels',
                     smallText: 'View all',
-                    func:  (){
+                    func: () {
                       Navigator.pushNamed(context, AppRoutes.allHotels);
                     },
                   ),
                   const SizedBox(height: 20),
                   SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                      child:  Row(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
                         children: hotelList
                             .take(2)
-                            .map((singleHotel) =>
-                            Hotel(hotel: singleHotel))
+                            .map((singleHotel) => GestureDetector(
+                                onTap: (){
+                                  var index = hotelList.indexOf(singleHotel);
+
+                                  Navigator.pushNamed(context, AppRoutes.hotelDetail, arguments: {
+                                    "index":index
+                                  });
+                                },
+                                child: Hotel(hotel: singleHotel)))
                             .toList(),
-                      )
-                  )
+                      ))
                 ],
               ),
             ),
