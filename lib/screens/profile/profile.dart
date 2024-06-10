@@ -1,8 +1,10 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
+import 'package:ticket_app/base/widgets/app_coloum_text_layout.dart';
 import 'package:ticket_app/base/widgets/heading_text.dart';
 import 'package:ticket_app/base/widgets/text_style_third.dart';
 
@@ -189,8 +191,88 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(height: 4,),
 
                 //row->column
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppColumnTextLayout(
+                      topText: "23 402",
+                      bottomText: "Miles",
+                      alignment: CrossAxisAlignment.start,
+                      isColor: false,
+                    ),
+
+                    AppColumnTextLayout(
+                      topText: "McDonald\'s",
+                      bottomText: "Received from",
+                      alignment: CrossAxisAlignment.end,
+                      isColor: false,
+                    ),
+
+
+                  ],
+                ),
+                const SizedBox(height: 4,),
+                //divider
+                Divider(color: Colors.grey.shade300),
+                const SizedBox(height: 4,),
                 //row->column
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                  children: [
+                    AppColumnTextLayout(
+                      topText: "Airline CO",
+                      bottomText: "Received from",
+                      alignment: CrossAxisAlignment.start,
+                      isColor: false,
+                    ),
+                    AppColumnTextLayout(
+                      topText: "24",
+                      bottomText: "Miles",
+                      alignment: CrossAxisAlignment.end,
+                      isColor: false,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4,),
+                //divider
+                Divider(color: Colors.grey.shade300),
+                const SizedBox(height: 4,),
+                //row->column
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                  children: [
+                    AppColumnTextLayout(
+                      topText: "52 240",
+                      bottomText: "Miles",
+                      alignment: CrossAxisAlignment.start,
+                      isColor: false,
+                    ),
+                    AppColumnTextLayout(
+                      topText: "Dbestech",
+                      bottomText: "Received from",
+                      alignment: CrossAxisAlignment.end,
+                      isColor: false,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 25,),
                 //text
+                InkWell(
+                  onTap: (){
+                    if (kDebugMode) {
+                      print("tapped");
+                    }
+                  },
+                  child: Text(
+                    "How to get more miles",
+                    style: AppStyles.textStyle.copyWith(
+                      color: AppStyles.primaryColor,
+                      fontWeight: FontWeight.w500
+                    ),
+                  ),
+                )
               ],
             ),
           )
