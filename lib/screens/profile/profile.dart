@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/widgets/heading_text.dart';
+import 'package:ticket_app/base/widgets/text_style_third.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -13,10 +14,11 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppStyles.bgColor,
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         children: [
           const Padding(padding: EdgeInsets.only(top: 40)),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //shows the logo
               Container(
@@ -72,9 +74,65 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+              Expanded(child: Container()),
+              Text(
+                "Edit",
+                style: TextStyle(
+                  color: AppStyles.primaryColor, fontWeight: FontWeight.w300
+                ),
               )
             ],
           ),
+          const SizedBox(height: 8,),
+          //divider
+          Divider(color: Colors.grey.shade300,),
+          Stack(
+            children: [
+              Container(
+                height: 90,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: AppStyles.primaryColor,
+                  borderRadius: BorderRadius.circular(18)
+
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      maxRadius: 25,
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        FluentSystemIcons.ic_fluent_lightbulb_filament_filled,
+                        color: AppStyles.primaryColor,
+                        size: 27,
+                      ),
+                    ),
+                    const SizedBox(width: 12,),
+                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const TextStyleThird(
+                          text:"You\'v got a new award",
+                          isColor: null,
+                        ),
+                        Text(
+                          "You have 95 flights in a year",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white.withOpacity(0.8)
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
