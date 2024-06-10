@@ -37,7 +37,6 @@ class ProfileScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const HeadingText(text: "Book Tickets", isColor: false),
-
                   Text(
                     "New-York",
                     style: TextStyle(
@@ -45,9 +44,11 @@ class ProfileScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         color: Colors.grey.shade500),
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 3,horizontal: 3),
+                    padding: EdgeInsets.symmetric(vertical: 3, horizontal: 3),
                     //decoration
                     decoration: BoxDecoration(
                       color: AppStyles.profileLocationColor,
@@ -58,18 +59,25 @@ class ProfileScreen extends StatelessWidget {
                       children: [
                         Container(
                           padding: const EdgeInsets.all(3),
-                          decoration:  BoxDecoration(
-                              shape: BoxShape.circle, color: AppStyles.profileTextColor),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppStyles.profileTextColor),
                           child: const Icon(
-                              FluentSystemIcons.ic_fluent_shield_filled,
-                              color: Colors.white,
-                              size: 15,
+                            FluentSystemIcons.ic_fluent_shield_filled,
+                            color: Colors.white,
+                            size: 15,
                           ),
                         ),
-                        SizedBox(width: 5,),
-                        Text("Premium status", style: TextStyle(
-                          color: AppStyles.profileTextColor, fontWeight: FontWeight.w500,
-                        ),)
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "Premium status",
+                          style: TextStyle(
+                            color: AppStyles.profileTextColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
                       ],
                     ),
                   )
@@ -79,24 +87,26 @@ class ProfileScreen extends StatelessWidget {
               Text(
                 "Edit",
                 style: TextStyle(
-                  color: AppStyles.primaryColor, fontWeight: FontWeight.w300
-                ),
+                    color: AppStyles.primaryColor, fontWeight: FontWeight.w300),
               )
             ],
           ),
-          const SizedBox(height: 8,),
+          const SizedBox(
+            height: 8,
+          ),
           //divider
-          Divider(color: Colors.grey.shade300,),
+          Divider(
+            color: Colors.grey.shade300,
+          ),
+          //show the card
           Stack(
             children: [
               Container(
                 height: 90,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: AppStyles.primaryColor,
-                  borderRadius: BorderRadius.circular(18)
-
-                ),
+                    color: AppStyles.primaryColor,
+                    borderRadius: BorderRadius.circular(18)),
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
@@ -111,27 +121,78 @@ class ProfileScreen extends StatelessWidget {
                         size: 27,
                       ),
                     ),
-                    const SizedBox(width: 12,),
-                     Column(
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const TextStyleThird(
-                          text:"You\'v got a new award",
+                          text: "You\'v got a new award",
                           isColor: null,
                         ),
                         Text(
                           "You have 95 flights in a year",
                           style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white.withOpacity(0.8)
-                          ),
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white.withOpacity(0.8)),
                         )
                       ],
                     )
                   ],
                 ),
-              )
+              ),
+              Positioned(
+                  top:-40,
+                  right: -45,
+                  child: Container(
+                  padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 18, color: Color(0xFF264CD2))
+                  ),
+              ))
             ],
+          ),
+          const SizedBox(height: 25,),
+          Text("Accumulated miles", style: AppStyles.headLineStyle2,),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(18),
+              color: AppStyles.bgColor
+            ),
+            child: Column(
+              children: [
+                const SizedBox(height: 15,),
+                Text("192802", style: TextStyle(
+                  fontSize: 45, color: AppStyles.textColor, fontWeight: FontWeight.w600
+                ),),
+                const SizedBox(height: 15,),
+                //row -> text,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Miles accured",
+                      style: AppStyles.headLineStyle4.copyWith(fontSize: 16),
+                    ),
+                    Text(
+                      "16th July",
+                      style: AppStyles.headLineStyle4.copyWith(fontSize: 16),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 4,),
+                //divider
+                Divider(color: Colors.grey.shade300),
+                const SizedBox(height: 4,),
+
+                //row->column
+                //row->column
+                //text
+              ],
+            ),
           )
         ],
       ),
