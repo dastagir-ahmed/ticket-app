@@ -39,6 +39,10 @@ dependencies:
   flutter_screenutil: ^5.9.0
   barcode_widget: ^2.0.4
   get: ^4.6.6
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+  riverpod_generator: ^2.4.0
+  build_runner: ^2.4.9
 
 dev_dependencies:
   flutter_test:
