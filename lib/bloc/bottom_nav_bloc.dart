@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 
 class BottomNavBloc extends Bloc<BottomNavBarEvent,BottomNavState>{
 
-  BottomNavBloc():super(BottomNavBarInitial()){
+  BottomNavBloc():super(BottomNavBarSelected(0)){
     on<OnItemTapped>((event, emit){
       emit(BottomNavBarSelected(event.index));
     });
