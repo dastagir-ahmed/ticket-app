@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/utils/all_json.dart';
 import 'package:get/get.dart';
+import 'package:ticket_app/bloc/text_expansion_blocs.dart';
+import 'package:ticket_app/bloc/text_expansion_events.dart';
+import 'package:ticket_app/bloc/text_expansion_states.dart';
 import 'package:ticket_app/controller/text_expansion_controller.dart';
 import 'package:ticket_app/provider/text_expansion_provider.dart';
 
@@ -121,36 +125,43 @@ class _HotelDetailState extends State<HotelDetail> {
   }
 }
 
-class ExpandedTextWidget extends ConsumerWidget {
+class ExpandedTextWidget extends StatelessWidget {
   ExpandedTextWidget({super.key, required this.text});
   final String text;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    var provider = ref.watch(textExpansionNotifierProvider);
+  Widget build(BuildContext context) {
 
-    var textWidget = Text(
-      text,
-      maxLines: provider?null:9,
-      overflow: provider?TextOverflow.visible:TextOverflow.ellipsis,
-    );
+    return BlocBuilder<TextExpansionBloc, TextExpansionStates>(builder: (context, state){
+      if(state is IsExpandedState){
+        var isExpanded = state.isExpanded;
+        var textWidget = Text(
+          text,
+          maxLines: isExpanded?null:9,
+          overflow: isExpanded?TextOverflow.visible:TextOverflow.ellipsis,
+        );
 
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children:[
-          textWidget,
-          GestureDetector(
-            onTap: (){
-              ref.watch(textExpansionNotifierProvider.notifier).toggleText(provider);
-            },
-            child: Text(
-              provider?'Less':'More',
-              style: AppStyles.textStyle.copyWith(
-                  color: AppStyles.primaryColor
-              ),
-            ),
-          )
-        ]
-    );
+        return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:[
+              textWidget,
+              GestureDetector(
+                onTap: (){
+                  context.read<TextExpansionBloc>().add(IsExpandedEvent(!isExpanded));
+                },
+                child: Text(
+                  isExpanded?'Less':'More',
+                  style: AppStyles.textStyle.copyWith(
+                      color: AppStyles.primaryColor
+                  ),
+                ),
+              )
+            ]
+        );
+      }else{
+        return Container();
+      }
+
+    });
   }
 }
